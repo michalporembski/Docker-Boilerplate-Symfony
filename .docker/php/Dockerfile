@@ -1,4 +1,4 @@
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 WORKDIR "/application"
 
 # Install selected extensions and other stuff
@@ -11,7 +11,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer --version
 
 # Install NPM
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash
 RUN apt-get install nodejs -y
 RUN node -v && npm -v
 
@@ -26,4 +26,4 @@ RUN "date"
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo pdo_mysql
 
-RUN echo 'alias sf="php app/console"' >> ~/.bashrc
+RUN echo 'alias sf="php bin/console"' >> ~/.bashrc

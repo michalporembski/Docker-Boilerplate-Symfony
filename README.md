@@ -50,5 +50,5 @@ Be careful, the IP address of the database is the name of the container. The add
   * Check the status of the containers : `docker-compose ps`
   * Watch the container logs : `docker-compose logs`
   * Making a command in a container : `docker-compose exec CONTAINER_NAME COMMAND` where `COMMAND` is your command. Examples :  
-    - Open a console in the php-fpm container : `docker-compose exec php bash`
+    - Open a console in the php-fpm container : `docker-compose exec -u 1000 php bash`
     - Open the Symfony console : `docker-compose exec php bin/console`

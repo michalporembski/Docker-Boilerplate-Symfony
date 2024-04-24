@@ -22,14 +22,15 @@ while getopts ":hn" option; do
   esac
 done
 
-#docker-compose build
-#docker-compose up -d
+docker-compose build
+docker-compose up -d
 
 if [ ! -f "./application/composer.json" ]; then
   if $emptyProject; then
-    docker-compose exec -u 1000:1000 php composer create-project symfony/website-skeleton /application
-    docker-compose exec -u 1000:1000 php composer install
+    docker-compose exec -u 1000:1000 php composer create-project symfony/website-skeleton ./
  else
     git clone $APPLICATION_GIT ./application
   fi
 fi
+
+docker-compose exec -u 1000:1000 php composer install

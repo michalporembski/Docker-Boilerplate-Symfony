@@ -11,3 +11,5 @@ docker exec -it $PROJECT_NAME-php php ./vendor/bin/phpcs src
 docker exec -it $PROJECT_NAME-php php ./vendor/bin/php-cs-fixer check src
 docker exec -it $PROJECT_NAME-php php ./vendor/bin/phpstan analyse -c phpstan.neon
 docker exec -it $PROJECT_NAME-php php ./vendor/bin/phan --allow-polyfill-parser
+
+docker exec -it $PROJECT_NAME-php phptest ./vendor/bin/phpunit --coverage-html ./tmp/coverage
